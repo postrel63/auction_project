@@ -21,8 +21,7 @@ public class Product {
     private String title;
     private String image;
     private Long startPrice;
-    private Long endPrice;
-    private Date auctionStartTime;
-    private Date auctionEndTime;
-    private boolean active;
+    private Date createdTime;
+    private Date updateTime;
+    private boolean status;
 }

@@ -1,6 +1,7 @@
 package com.zerobase.auction_project.entity;
 
 
+import com.zerobase.auction_project.type.Auctionstatus;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -18,12 +19,13 @@ public class Auction {
     @Id
     private Long id;
 
-    private String userId;
-    private String buyerId;
     private Long productId;
-    private Long price;
-    private Date createTime;
+    private String buyerId;
+    private Long minBidPrice; // 최소 입찰 증가 단위 금액
+    private Long startPrice;
+    private Long endPrice;
     private Date startTime;
     private Date endTime;
+    private Auctionstatus status; // 상태
 
 }
