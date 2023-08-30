@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @ToString
-public class Member {
+public class User {
 
     @Id
     private Long id;
