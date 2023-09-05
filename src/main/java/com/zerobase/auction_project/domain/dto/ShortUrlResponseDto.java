@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.dto;
+package com.zerobase.auction_project.domain.dto;
 
 import lombok.*;
 import org.springframework.data.redis.core.RedisHash;

@@ -1,7 +1,7 @@
-package com.zerobase.auction_project.entity;
+package com.zerobase.auction_project.domain;
 
 
-import com.zerobase.auction_project.type.Auctionstatus;
+import com.zerobase.auction_project.domain.type.Auctionstatus;
 import lombok.*;
 
 import javax.persistence.Entity;

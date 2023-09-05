@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.entity;
+package com.zerobase.auction_project.domain;
 
 import lombok.*;
 
@@ -22,7 +22,7 @@ public class Record {
     private String endPrice;
     private String Time;
     private String status;
-// 거래에 관한 추가 정보 , 결제,
+    // 거래에 관한 추가 정보 , 결제,
     private String paymentMethod; // 결제 방법 enum 신용카드, 계좌 이체
     private String paymentStatus; // 결제 상태 enum 대기중, 완료, 취소
     private String ShippingStatus; // 배송 상태 enum 준비중, 배송중, 수령완료
