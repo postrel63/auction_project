@@ -7,9 +7,9 @@ plugins {
 group = 'com.zerobase'
 version = '0.0.1-SNAPSHOT'
 
-java {
-    sourceCompatibility = '1.8'
-}
+//java {
+//    sourceCompatibility = '1.8'
+//}
 
 configurations {
     compileOnly {
@@ -21,19 +21,38 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springCloudVersion', "2021.0.4")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.data:spring-data-envers'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'com.h2database:h2'
+
+    //swagger
+    implementation "io.springfox:springfox-boot-starter:3.0.0"
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core:4.8.0'
 }
 
 tasks.named('test') {

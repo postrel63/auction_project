@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.entity;
+package com.zerobase.auction_project.domain;
 
 import lombok.*;
 

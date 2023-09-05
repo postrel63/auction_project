@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.type;
+package com.zerobase.auction_project.domain.type;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
