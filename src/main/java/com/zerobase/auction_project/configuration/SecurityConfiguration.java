@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
@@ -31,22 +30,17 @@ public class SecurityConfiguration {
         http.csrf().disable().cors().disable()
                 .authorizeRequests()
                 .antMatchers(
-                        "/"
+                        "/",
+                        "/swagger-ui.html",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**",
+                        "/swagger-ui/**",
+                        "/swagger/**",
+                        "/api/users/**"
+
                 )
                 .permitAll()
                 .anyRequest().authenticated();
-
-
-        http.formLogin(login -> login
-                                .loginPage("/member/login")
-                                .failureHandler(getFailHandler())
-//              .defaultSuccessUrl(("/view/성공했을 때"))
-                                .permitAll()
-                )
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-                .logoutSuccessUrl("/")
-                .invalidateHttpSession(true);
 
         return http.build();
     }
