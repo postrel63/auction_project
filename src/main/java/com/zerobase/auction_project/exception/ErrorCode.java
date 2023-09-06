@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum ErrorCode {
 
+    ALREADY_REGISTER_USER(HttpStatus.BAD_REQUEST, "이미 가입된 회원입니다."),
     NOT_FOUND_USER(HttpStatus.BAD_REQUEST, "회원 정보가 없습니다."),
     ALREADY_VERIFY(HttpStatus.BAD_REQUEST, "이미 인증된 회원입니다."),
     EXPIRED_VERIFY(HttpStatus.BAD_REQUEST, "인증번호가 유효하지 않습니다."),

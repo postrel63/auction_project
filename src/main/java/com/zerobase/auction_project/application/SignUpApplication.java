@@ -22,14 +22,13 @@ public class SignUpApplication {
     private final UserService userService;
     private final MailComponents mailComponents;
 
-    public String signUp(@Validated UserSignUpForm form, HttpSession session) {
+    public String signUp(@Validated UserSignUpForm form) {
         if (userService.isExistEmail(form.getEmail())) {
-            throw new CustomException(ErrorCode.NOT_FOUND_USER);
+            throw new CustomException(ErrorCode.ALREADY_REGISTER_USER);
         }
         String encPassword = userService.encryptPassword(form.getPassword());
         String authKey = UUID.randomUUID().toString();
-        //인증번호는 세션에 담아서 보내기 -> 캐시로?
-        session.setAttribute(form.getEmail(), authKey);
+
 
         User user = userService.createUser(
                 form.getEmail(), encPassword, authKey, form.getPhone(), form.getBirth());
@@ -39,7 +38,7 @@ public class SignUpApplication {
         try {
             text = "<p>회원가입을 축하드립니다</p><p>링크를 클릭해서 회원가입을 완료하세요</p>"
                     + "<div><a href='http://localhost:8080/api/users/verify?email="
-                    + URLEncoder.encode(user.getEmail(), "UTF-8") + "'>Click here to verify</a></div>";
+                    + URLEncoder.encode(user.getEmail(), "UTF-8") + "&authKey="+authKey+"'>Click here to verify</a></div>";
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
@@ -50,8 +49,8 @@ public class SignUpApplication {
     }
 
     //이메일 인증
-    public void verifyEmail(String email, HttpSession session) {
-        userService.verifyEmail(email, session);
+    public void verifyEmail(String email, String authKey) {
+        userService.verifyEmail(email, authKey);
     }
 
 }

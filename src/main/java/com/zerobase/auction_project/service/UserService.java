@@ -16,5 +16,5 @@ public interface UserService {
 
     User createUser(String email, String password, String authKey, String phone, String birth);
 
-    void verifyEmail(String email, HttpSession session);
+    void verifyEmail(String email, String authKey);
 }

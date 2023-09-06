@@ -50,9 +50,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void verifyEmail(String email, HttpSession session) {
+    public void verifyEmail(String email, String authKey) {
+        System.out.println("@@@");
+        System.out.println(authKey);
 
-        String authKey = (String) session.getAttribute(email);
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
 

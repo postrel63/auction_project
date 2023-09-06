@@ -17,14 +17,14 @@ public class UserController {
 
     //회원 가입
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody UserSignUpForm form, HttpSession session) {
-        return ResponseEntity.ok(signUpApplication.signUp(form, session));
+    public ResponseEntity<String> signup(@RequestBody UserSignUpForm form) {
+        return ResponseEntity.ok(signUpApplication.signUp(form));
     }
 
     //이메일 인증번호 인증
     @GetMapping("/verify")
-    public ResponseEntity<String> verify(@RequestParam String email, HttpSession session) {
-        signUpApplication.verifyEmail(email, session);
+    public ResponseEntity<String> verify(@RequestParam String email, String authKey) {
+        signUpApplication.verifyEmail(email, authKey);
         return ResponseEntity.ok("인증이 완료되었습니다.");
     }
 
