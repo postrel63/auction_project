@@ -23,7 +23,7 @@ public class User {
     private String email;
     private String phone;
     private String birth;
-    private String nickName;
+    private String name;
     private String image;
     private boolean auth; // 인증상태
     private String authKey; // 인증번호
