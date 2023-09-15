@@ -51,9 +51,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void verifyEmail(String email, String authKey) {
-        System.out.println("@@@");
-        System.out.println(authKey);
-
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
 

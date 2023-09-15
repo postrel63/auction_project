@@ -5,12 +5,14 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Auctionstatus {
-
+public enum ProductStatus {
+    //경매전
+    Pending,
     //진행중
+    OnGoing,
     //낙찰
+    Sold,
     //유찰
-
-
+    UnSold;
 
 }
