@@ -15,6 +15,8 @@ public enum ErrorCode {
     WRONG_VERIFY(HttpStatus.BAD_REQUEST, "잘못된 인증 시도입니다.");
 
 
+
+
     private final HttpStatus httpStatus;
     private final String detail;
 

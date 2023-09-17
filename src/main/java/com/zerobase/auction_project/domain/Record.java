@@ -10,7 +10,6 @@ import javax.persistence.Id;
 @Builder
 @Entity
 @Data
-@ToString
 public class Record {
 
     @Id

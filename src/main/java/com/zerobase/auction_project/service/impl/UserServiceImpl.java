@@ -9,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -48,11 +48,10 @@ public class UserServiceImpl implements UserService {
                 .build();
     }
 
+    //회원가입 시 이메일 인증
     @Override
     @Transactional
     public void verifyEmail(String email, String authKey) {
-        System.out.println("@@@");
-        System.out.println(authKey);
 
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
@@ -68,6 +67,31 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setAuth(true);
+
+    }
+
+    //로그인 시 유효성 검사
+    @Override
+    public User userSignInValid(String email, String password) {
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if (optionalUser.isEmpty()) {
+            throw new CustomException(ErrorCode.NOT_FOUND_USER);
+        }
+
+        User user = optionalUser.get();
+        if (!BCrypt.checkpw(password, user.getUserPassword())) {
+            throw new CustomException(ErrorCode.NOT_FOUND_USER);
+        }
+
+        return user;
+    }
+
+    @Override
+    public Optional<User> findByIdAndEmail(Long id, String email) {
+        return userRepository.findById(id).stream().filter(
+                user -> user.getEmail().equals(email)
+        ).findFirst();
+
 
     }
 }
