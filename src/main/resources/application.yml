@@ -35,21 +35,13 @@ spring:
 
   redis:
     host: localhost
-    port: 6379
+    port: 6378
 
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: myGroup
 
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: postrel6333@gmail.com
-    password: zrskbjmrfthshxoq
-    properties:
-      mail:
-        smtp:
-          starttls:
-            enable: true
 
+  profiles:
+    active: default, secret
