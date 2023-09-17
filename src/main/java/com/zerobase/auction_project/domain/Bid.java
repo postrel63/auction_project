@@ -1,23 +1,34 @@
 package com.zerobase.auction_project.domain;
 
 import lombok.*;
+import org.springframework.data.redis.core.RedisHash;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @Data
-@ToString
+@RedisHash("bid")
 public class Bid {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String auctionId;
-    private String memberId;
-    private String price;
-    private String createdAt;
+    private Long auctionProductId;
+    private Long userId;
+    private double price;
+    private LocalDateTime bidAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "auction_id")
+    private Auction auction;
+
+
+
+
 }
