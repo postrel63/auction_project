@@ -18,6 +18,8 @@ public enum ErrorCode {
     NOT_FOUND_AUCTION(HttpStatus.BAD_REQUEST, "경매상품이 존재하지 않습니다."),
     BIDDING_INITIATED(HttpStatus.BAD_REQUEST, "입찰이 시작된 경매상품입니다.");
 
+
+
     private final HttpStatus httpStatus;
     private final String detail;
 

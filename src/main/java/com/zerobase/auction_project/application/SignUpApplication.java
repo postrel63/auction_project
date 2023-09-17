@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.UUID;
@@ -38,7 +37,7 @@ public class SignUpApplication {
         try {
             text = "<p>회원가입을 축하드립니다</p><p>링크를 클릭해서 회원가입을 완료하세요</p>"
                     + "<div><a href='http://localhost:8080/api/users/verify?email="
-                    + URLEncoder.encode(user.getEmail(), "UTF-8") + "&authKey="+authKey+"'>Click here to verify</a></div>";
+                    + URLEncoder.encode(user.getEmail(), "UTF-8") + "&authKey=" + authKey + "'>Click here to verify</a></div>";
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
