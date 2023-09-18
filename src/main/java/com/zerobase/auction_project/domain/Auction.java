@@ -1,8 +1,8 @@
 package com.zerobase.auction_project.domain;
 
 
-import com.zerobase.auction_project.domain.dto.AddAuctionForm;
-import com.zerobase.auction_project.domain.dto.UpdateAuctionForm;
+import com.zerobase.auction_project.domain.request.AddAuctionForm;
+import com.zerobase.auction_project.domain.request.UpdateAuctionForm;
 import com.zerobase.auction_project.domain.type.ProductStatus;
 import lombok.*;
 
@@ -39,6 +39,7 @@ public class Auction {
     private List<Bid> bids;
 
 
+    //등록할 때
     public static Auction of(Long userId, AddAuctionForm form){
         return Auction.builder()
                 .sellerId(userId)
@@ -49,6 +50,7 @@ public class Auction {
                 .endPrice(form.getEndPrice())
                 .startTime(LocalDateTime.now())
                 .endTime(form.getEndTime())
+                .status(ProductStatus.OnGoing)
                 .build();
     }
 
@@ -61,8 +63,16 @@ public class Auction {
         this.endTime = form.getEndTime();
     }
 
-
+    //입찰기록 유무
     public boolean hasBid() {
         return !bids.isEmpty();
     }
+
+    //최고 입찰가
+    public Integer getHighestBidPrice(){
+        return bids.stream().mapToInt(Bid::getPrice)
+                .max().orElse(0);
+    }
+
+
 }

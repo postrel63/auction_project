@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.domain.dto;
+package com.zerobase.auction_project.domain.response;
 
 
 import lombok.Builder;

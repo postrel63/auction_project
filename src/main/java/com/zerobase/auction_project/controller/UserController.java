@@ -2,10 +2,9 @@ package com.zerobase.auction_project.controller;
 
 import com.zerobase.auction_project.application.SignInApplication;
 import com.zerobase.auction_project.application.SignUpApplication;
-import com.zerobase.auction_project.domain.dto.SignInResponse;
-import com.zerobase.auction_project.domain.dto.UserDto;
-import com.zerobase.auction_project.domain.dto.UserSignInForm;
-import com.zerobase.auction_project.domain.dto.UserSignUpForm;
+import com.zerobase.auction_project.domain.response.SignInResponse;
+import com.zerobase.auction_project.domain.request.UserSignInForm;
+import com.zerobase.auction_project.domain.request.UserSignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

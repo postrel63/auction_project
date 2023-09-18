@@ -2,7 +2,7 @@ package com.zerobase.auction_project.application;
 
 import com.zerobase.auction_project.components.MailComponents;
 import com.zerobase.auction_project.domain.User;
-import com.zerobase.auction_project.domain.dto.UserSignUpForm;
+import com.zerobase.auction_project.domain.request.UserSignUpForm;
 import com.zerobase.auction_project.exception.CustomException;
 import com.zerobase.auction_project.exception.ErrorCode;
 import com.zerobase.auction_project.service.UserService;

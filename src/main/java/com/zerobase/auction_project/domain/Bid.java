@@ -19,16 +19,13 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long auctionProductId;
     private Long userId;
-    private double price;
+    private Integer price;
     private LocalDateTime bidAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auction_id")
     private Auction auction;
-
-
 
 
 }
