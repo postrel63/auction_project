@@ -5,6 +5,7 @@ import com.zerobase.auction_project.application.SignUpApplication;
 import com.zerobase.auction_project.domain.response.SignInResponse;
 import com.zerobase.auction_project.domain.request.UserSignInForm;
 import com.zerobase.auction_project.domain.request.UserSignUpForm;
+import com.zerobase.auction_project.jwt.config.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class UserController {
 
     private final SignUpApplication signUpApplication;
     private final SignInApplication signInApplication;
+    private final JwtAuthenticationProvider provider;
 
     //회원 가입
     @PostMapping("/signup")
@@ -36,6 +38,11 @@ public class UserController {
 
         SignInResponse signInResponse = signInApplication.signInToken(form.getEmail(), form.getPassword());
         return ResponseEntity.ok(signInResponse);
+    }
+
+    @PostMapping("/valid")
+    public boolean valid(@RequestHeader(name = "X-AUTH-TOKEN") String token){
+        return provider.validateToken(token);
     }
 
 }

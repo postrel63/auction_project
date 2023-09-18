@@ -16,9 +16,9 @@ import java.util.Objects;
 public class JwtAuthenticationProvider {
 
 //    private final String secretKey = System.getenv("SECRET_KEY");
-    private final String secretKey = "aadsffdadafdafadfsadsfdsfafdsadfsafds";
+    private final String secretKey = "zerobasezerobase12341234";
 
-    private Long tokenValidTime = 1000L * 60 * 60 * 24;
+    private  Long tokenValidTime = 1000L * 60 * 60 * 24;
 
 
     public String createToken(String userPk, Long id, UserType userType) {

@@ -7,11 +7,13 @@ import com.zerobase.auction_project.domain.request.UpdateAuctionForm;
 import com.zerobase.auction_project.jwt.config.JwtAuthenticationProvider;
 import com.zerobase.auction_project.service.AuctionService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auctions")
@@ -40,12 +42,13 @@ public class AuctionController {
     }
 
     @GetMapping("/{auctionId}")
-    public ResponseEntity<Auction> getAuction(@PathVariable Long auctionId) {
+    public ResponseEntity<Auction> getAuction(@PathVariable Long auctionId,
+                                              @RequestHeader(name = "X-AUTH-TOKEN") String token) {
         return ResponseEntity.ok(auctionService.getAuction(auctionId));
     }
 
     @GetMapping("/all")
-    public List<AuctionDto> getAllAuction() {
+    public List<AuctionDto> getAllAuction(@RequestHeader(name = "X-AUTH-TOKEN") String token) {
         return auctionService.getAllAuctions();
     }
 

@@ -1,5 +1,7 @@
 package com.zerobase.auction_project.configuration;
 
+import com.zerobase.auction_project.configuration.filter.JwtAuthenticationFilter;
+import com.zerobase.auction_project.jwt.config.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,11 +10,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration {
+
+    private final JwtAuthenticationProvider jwtProvider;
+
+    public JwtAuthenticationFilter jwtAuthenticationFilter() throws Exception {
+        return new JwtAuthenticationFilter(jwtProvider);
+    }
 
     @Bean
     UserAuthenticationFailureHandler getFailHandler() {
@@ -23,6 +32,7 @@ public class SecurityConfiguration {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -39,11 +49,11 @@ public class SecurityConfiguration {
                         "/api/users/signUp",
                         "/api/users/signIn",
                         "/api/users/**"
-
-
                 )
                 .permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
