@@ -14,7 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Data
+@Getter
+@Setter
+@NamedEntityGraph(name = "Auction.bids", attributeNodes = @NamedAttributeNode("bids"))
 public class Auction {
 
     @Id
@@ -50,7 +52,7 @@ public class Auction {
                 .endPrice(form.getEndPrice())
                 .startTime(LocalDateTime.now())
                 .endTime(form.getEndTime())
-                .status(ProductStatus.OnGoing)
+                .status(ProductStatus.Pending)
                 .build();
     }
 

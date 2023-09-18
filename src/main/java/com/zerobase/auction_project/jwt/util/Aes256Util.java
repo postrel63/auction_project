@@ -12,7 +12,7 @@ public class Aes256Util {
 
     public static String alg = "AES/CBC/PKCS5Padding";
 //    private static final String KEY = System.getenv("AES_KEY");
-    private static final String KEY = "fsdsdfsfdfdsdsfsfddsf";
+    private static final String KEY = "aaaassssaaaassssddddffff";
 
     private static final String IV = KEY.substring(0, 16);
 

@@ -19,7 +19,7 @@ public class AuctionEndJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        log.info("경매 시간 지난 상품 종료");
+        log.info("경매 시간 지난 경매 종료하는 메서드");
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
         Long auctionId = Long.valueOf(jobDataMap.getString("auctionId"));
 

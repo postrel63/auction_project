@@ -15,7 +15,7 @@ public class SignInApplication {
     private final UserService userService;
     private final JwtAuthenticationProvider provider;
 
-    //로그인 -> JWT 토큰 발행 -> 기본정보(이름,이메일)와 함께 반환
+    //로그인 -> JWT 토큰 발행 -> 기본정보(닉네임,이메일)와 함께 반환
     public SignInResponse signInToken(String email, String password) {
 
         User user = userService.userSignInValid(email, password);
