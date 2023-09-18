@@ -1,7 +1,7 @@
 package com.zerobase.auction_project.application;
 
 import com.zerobase.auction_project.domain.User;
-import com.zerobase.auction_project.domain.dto.SignInResponse;
+import com.zerobase.auction_project.domain.response.SignInResponse;
 import com.zerobase.auction_project.jwt.common.UserType;
 import com.zerobase.auction_project.jwt.config.JwtAuthenticationProvider;
 import com.zerobase.auction_project.service.UserService;

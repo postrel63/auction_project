@@ -2,7 +2,7 @@
 //
 //
 //import com.zerobase.auction_project.application.SignUpApplication;
-//import com.zerobase.auction_project.domain.dto.UserSignUpForm;
+//import com.zerobase.auction_project.domain.request.UserSignUpForm;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.*;

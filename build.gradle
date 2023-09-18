@@ -39,8 +39,10 @@ dependencies {
     implementation 'org.springframework.data:spring-data-envers'
 
     //AWS S3
-    implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.4.4'
+//    implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.4.4'
 
+    //quartz
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-quartz', version: '2.3.2.RELEASE'
 
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
