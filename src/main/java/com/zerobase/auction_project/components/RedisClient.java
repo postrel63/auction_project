@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.application;
+package com.zerobase.auction_project.components;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
