@@ -46,6 +46,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation group: 'org.redisson', name: 'redisson', version: '3.23.3'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'com.h2database:h2'
