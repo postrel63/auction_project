@@ -1,6 +1,6 @@
 package com.zerobase.auction_project.service.impl;
 
-import com.zerobase.auction_project.application.RedisClient;
+import com.zerobase.auction_project.components.RedisClient;
 import com.zerobase.auction_project.domain.Auction;
 import com.zerobase.auction_project.domain.Bid;
 import com.zerobase.auction_project.domain.request.BidForm;
@@ -11,6 +11,7 @@ import com.zerobase.auction_project.exception.ErrorCode;
 import com.zerobase.auction_project.repository.AuctionRepository;
 import com.zerobase.auction_project.service.BidService;
 import lombok.RequiredArgsConstructor;
+import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class BidServiceImpl implements BidService {
 
     private final AuctionRepository auctionRepository;
     private final RedisClient redisClient;
+    private final RedissonClient redissonClient;
 
     //입찰 시 레디스에 저장 (-> 나중에 DB에 한번에 저장)
     @Override
