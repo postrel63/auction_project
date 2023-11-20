@@ -1,4 +1,4 @@
-package com.zerobase.auction_project.exception;
+package com.zerobase.auction_project.exception.code;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

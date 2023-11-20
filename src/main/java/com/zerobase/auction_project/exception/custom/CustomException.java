@@ -1,6 +1,7 @@
-package com.zerobase.auction_project.exception;
+package com.zerobase.auction_project.exception.custom;
 
 
+import com.zerobase.auction_project.exception.code.ErrorCode;
 import lombok.Getter;
 
 @Getter

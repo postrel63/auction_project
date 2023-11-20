@@ -3,12 +3,14 @@ package com.zerobase.auction_project.service.impl;
 import com.zerobase.auction_project.components.RedisClient;
 import com.zerobase.auction_project.domain.Auction;
 import com.zerobase.auction_project.domain.Bid;
+import com.zerobase.auction_project.domain.User;
 import com.zerobase.auction_project.domain.request.BidForm;
 import com.zerobase.auction_project.domain.response.BidResponse;
 import com.zerobase.auction_project.domain.type.BidStatus;
-import com.zerobase.auction_project.exception.CustomException;
-import com.zerobase.auction_project.exception.ErrorCode;
+import com.zerobase.auction_project.exception.custom.CustomException;
+import com.zerobase.auction_project.exception.code.ErrorCode;
 import com.zerobase.auction_project.repository.AuctionRepository;
+import com.zerobase.auction_project.repository.BidRepository;
 import com.zerobase.auction_project.service.BidService;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RedissonClient;
@@ -23,6 +25,7 @@ import java.util.Optional;
 public class BidServiceImpl implements BidService {
 
     private final AuctionRepository auctionRepository;
+    private final BidRepository bidRepository;
     private final RedisClient redisClient;
     private final RedissonClient redissonClient;
 
@@ -57,4 +60,13 @@ public class BidServiceImpl implements BidService {
     public void bidEnded() {
 
     }
+
+    //낙찰자 선정
+    @Override
+    public Bid bidUser(Long auctionId) {
+
+        return bidRepository.findFirstByAuction_IdOrderByPriceDesc(auctionId);
+    }
+
+
 }

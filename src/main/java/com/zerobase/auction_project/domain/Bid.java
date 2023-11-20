@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Data
-@RedisHash("bid")
 public class Bid {
 
     @Id

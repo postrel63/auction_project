@@ -1,8 +1,8 @@
 package com.zerobase.auction_project.service.impl;
 
 import com.zerobase.auction_project.domain.User;
-import com.zerobase.auction_project.exception.CustomException;
-import com.zerobase.auction_project.exception.ErrorCode;
+import com.zerobase.auction_project.exception.custom.CustomException;
+import com.zerobase.auction_project.exception.code.ErrorCode;
 import com.zerobase.auction_project.repository.UserRepository;
 import com.zerobase.auction_project.service.UserService;
 import lombok.RequiredArgsConstructor;

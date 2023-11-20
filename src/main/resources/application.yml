@@ -38,9 +38,6 @@ spring:
       group-id: myGroup
 
 
-  profiles:
-    active: default, secret
-
   quartz:
     scheduler-name: QuartzScheduler
     job-store-type: memory
