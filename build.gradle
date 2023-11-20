@@ -1,15 +1,15 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.14'
+    id 'org.springframework.boot' version '2.7.13'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.zerobase'
 version = '0.0.1-SNAPSHOT'
 
-//java {
-//    sourceCompatibility = '1.8'
-//}
+java {
+    sourceCompatibility = '11'
+}
 
 configurations {
     compileOnly {
@@ -46,15 +46,16 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation group: 'org.redisson', name: 'redisson', version: '3.23.3'
+    implementation group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.23.3'
+
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'com.h2database:h2'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
     //swagger
-    implementation "io.springfox:springfox-boot-starter:3.0.0"
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+//    implementation "io.springfox:springfox-boot-starter:3.0.0"
+//    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
 
     compileOnly 'org.projectlombok:lombok'
