@@ -6,9 +6,10 @@ import com.zerobase.auction_project.domain.dto.AuctionDto;
 import com.zerobase.auction_project.domain.request.AddAuctionForm;
 import com.zerobase.auction_project.domain.request.UpdateAuctionForm;
 import com.zerobase.auction_project.domain.type.ProductStatus;
-import com.zerobase.auction_project.exception.custom.CustomException;
 import com.zerobase.auction_project.exception.code.ErrorCode;
+import com.zerobase.auction_project.exception.custom.CustomException;
 import com.zerobase.auction_project.repository.AuctionRepository;
+import com.zerobase.auction_project.repository.BidRepository;
 import com.zerobase.auction_project.service.AuctionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +21,6 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 public class AuctionServiceImpl implements AuctionService {
 
     private final AuctionRepository auctionRepository;
+    private final BidRepository bidRepository;
     private final Scheduler scheduler;
 
     //경매 상품 등록
@@ -81,20 +82,17 @@ public class AuctionServiceImpl implements AuctionService {
     @Override
     @Transactional
     public void endAuction(Long auctionId) {
-        Optional<Auction> auctionOptional = auctionRepository.findById(auctionId);
-        if (auctionOptional.isPresent()) {
-            Auction auction = auctionOptional.get();
-            if (auction.hasBid()) {
-                auction.setStatus(ProductStatus.Sold);
-            } else {
-                auction.setStatus(ProductStatus.UnSold);
-            }
-            auctionRepository.save(auction);
+
+        Auction auction = auctionRepository
+                .findById(auctionId).orElseThrow(() ->
+                        new CustomException(ErrorCode.NOT_FOUND_AUCTION));
+
+        if (bidRepository.existsByAuction_Id(auctionId)) {
+            auction.setStatus(ProductStatus.Sold);
         } else {
-            throw new CustomException(ErrorCode.NOT_FOUND_AUCTION);
+            auction.setStatus(ProductStatus.UnSold);
         }
     }
-
 
     //경매 상품 수정
     @Override
