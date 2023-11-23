@@ -6,7 +6,7 @@
 
 개발 환경
 - 프로젝트 기간: 2023.8 ~ 2023.11
-- java 8
+- java 11
 - corretto -1.8
 - Spring Boot(2.x)
 - Maria DB & JPA
