@@ -1,6 +1,7 @@
 package com.zerobase.auction_project.service;
 
 import com.zerobase.auction_project.domain.Auction;
+import com.zerobase.auction_project.domain.User;
 import com.zerobase.auction_project.domain.dto.AuctionDto;
 import com.zerobase.auction_project.domain.request.AddAuctionForm;
 import com.zerobase.auction_project.domain.request.UpdateAuctionForm;
@@ -23,5 +24,7 @@ public interface AuctionService {
     Auction getAuction(Long productId);
 
     List<AuctionDto> getAllAuctions();
+
+    Auction findByAuctionId(Long auctionId);
 
 }
