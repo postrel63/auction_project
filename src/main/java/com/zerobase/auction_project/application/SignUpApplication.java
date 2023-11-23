@@ -1,11 +1,11 @@
 package com.zerobase.auction_project.application;
 
 import com.zerobase.auction_project.components.MailComponents;
-import com.zerobase.auction_project.domain.User;
-import com.zerobase.auction_project.domain.request.UserSignUpForm;
+import com.zerobase.auction_project.user.domain.User;
+import com.zerobase.auction_project.user.domain.request.UserSignUpForm;
 import com.zerobase.auction_project.exception.custom.CustomException;
 import com.zerobase.auction_project.exception.code.ErrorCode;
-import com.zerobase.auction_project.service.UserService;
+import com.zerobase.auction_project.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;

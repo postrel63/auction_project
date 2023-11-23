@@ -2,7 +2,7 @@ package com.zerobase.auction_project.components;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zerobase.auction_project.domain.Bid;
+import com.zerobase.auction_project.bid.domain.Bid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
