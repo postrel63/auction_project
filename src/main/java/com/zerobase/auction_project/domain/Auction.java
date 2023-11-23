@@ -40,6 +40,10 @@ public class Auction {
     @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL)
     private List<Bid> bids;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     //등록할 때
     public static Auction of(Long userId, AddAuctionForm form){
