@@ -1,12 +1,12 @@
 package com.zerobase.auction_project.components;
 
-import com.zerobase.auction_project.domain.Auction;
-import com.zerobase.auction_project.domain.Bid;
-import com.zerobase.auction_project.domain.Notification;
-import com.zerobase.auction_project.service.AuctionService;
-import com.zerobase.auction_project.service.BidService;
-import com.zerobase.auction_project.service.NotificationService;
-import com.zerobase.auction_project.service.UserService;
+import com.zerobase.auction_project.auction.domain.Auction;
+import com.zerobase.auction_project.bid.domain.Bid;
+import com.zerobase.auction_project.notification.domain.Notification;
+import com.zerobase.auction_project.auction.service.AuctionService;
+import com.zerobase.auction_project.bid.service.BidService;
+import com.zerobase.auction_project.notification.service.NotificationService;
+import com.zerobase.auction_project.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobDataMap;

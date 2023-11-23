@@ -2,7 +2,7 @@
 //
 //import com.zerobase.auction_project.jwt.common.UserVo;
 //import com.zerobase.auction_project.jwt.config.JwtAuthenticationProvider;
-//import com.zerobase.auction_project.service.UserService;
+//import com.zerobase.auction_project.user.service.UserService;
 //import lombok.RequiredArgsConstructor;
 //
 //import javax.servlet.*;

@@ -1,7 +1,8 @@
 package com.zerobase.auction_project.service.impl;
 
-import com.zerobase.auction_project.domain.User;
-import com.zerobase.auction_project.repository.UserRepository;
+import com.zerobase.auction_project.user.domain.User;
+import com.zerobase.auction_project.user.repository.UserRepository;
+import com.zerobase.auction_project.user.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
