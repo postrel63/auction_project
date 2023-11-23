@@ -2,6 +2,7 @@ package com.zerobase.auction_project.service.impl;
 
 import com.zerobase.auction_project.components.AuctionEndJob;
 import com.zerobase.auction_project.domain.Auction;
+import com.zerobase.auction_project.domain.User;
 import com.zerobase.auction_project.domain.dto.AuctionDto;
 import com.zerobase.auction_project.domain.request.AddAuctionForm;
 import com.zerobase.auction_project.domain.request.UpdateAuctionForm;
@@ -140,6 +141,14 @@ public class AuctionServiceImpl implements AuctionService {
                 .map(this::AuctionToDto)
                 .collect(Collectors.toList());
 
+    }
+
+    @Override
+    public Auction findByAuctionId(Long auctionId) {
+        Auction auction = auctionRepository.findById(auctionId).orElseThrow(
+                () -> new CustomException(ErrorCode.NOT_FOUND_AUCTION)
+        );
+        return auction;
     }
 
     private AuctionDto AuctionToDto(Auction auction) {
