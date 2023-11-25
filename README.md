@@ -29,17 +29,18 @@
 <img src="https://img.shields.io/badge/MariaDB-1D2D35?style=for-the-badge&logo=MariaDB&logoColor=white">
 <img src="https://img.shields.io/badge/Redis-E01F3D?style=for-the-badge&logo=Redis&logoColor=white">
 
+기타
+<img src="https://img.shields.io/badge/smtp-5BC4EE?style=for-the-badge&logo=smtp&logoColor=white">
+<img src="https://img.shields.io/badge/json web token-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
+<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
+![SSE](https://img.shields.io/badge/SSE-0000FF?style=for-the-badge&logoColor=white)
+
 도구
 <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=GitHub&logoColor=white">
 <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
 <img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
 <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
 
-기타
-<img src="https://img.shields.io/badge/smtp-5BC4EE?style=for-the-badge&logo=smtp&logoColor=white">
-<img src="https://img.shields.io/badge/json web token-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
-<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
-![SSE](https://img.shields.io/badge/SSE-0000FF?style=for-the-badge&logoColor=white)
 # 기능
 
 **[회원 가입]**
